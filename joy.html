@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<!--
+The MIT License (MIT)
+
+This file is part of the JoyStick Project (https://github.com/bobboteck/JoyStick).
+Copyright (c) 2015 Roberto D'Amico (Bobboteck).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Botdemy Joystick Control</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+	*
+	{
+		box-sizing: border-box;
+	}
+	body
+	{
+		margin-top: 8px;
+		padding: 0px;
+		font-family: sans-serif;
+	}
+
+	.container
+	{
+		width: 70%;
+		min-width: 400px;
+		margin:auto;
+	}
+
+	H1
+	{
+		margin: auto;
+		background-color: MediumSeaGreen;
+		padding: 10px;
+	}
+
+	#joy1Div
+	{
+		width:400px;
+		height:400px;
+		margin: auto;
+	}
+	#joystick
+	{
+		border: 1px solid #FF0000;
+	}
+	</style>
+	<script src="joy.js"></script>
+</head>
+<body>
+	<!-- Example of FIXED or ABSOLUTE position -->
+	<!-- <div id="joyDiv" style="position:fixed;bottom:30px;left:500px;"></div> -->
+
+	<div class="container" style="text-align: center;">
+		<h1>Botdemy Joystick</h1>
+		<div id="joy1Div"></div>
+		<div>
+			X :<input id="joy1X" type="text" /></br>
+			Y :<input id="joy1Y" type="text" />
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+	// Create JoyStick object into the DIV 'joy1Div'
+	var joy1Param = { "title": "JoyStick" }; //css title
+	// var Joy3 = new JoyStick('joy3Div', joy3Param)
+	var Joy1 = new JoyStick('joy1Div', joy1Param); //object name has to match css id
+
+	var joy1IinputPosX = document.getElementById("joy1PosizioneX");
+	var joy1InputPosY = document.getElementById("joy1PosizioneY");
+	var joy1Direzione = document.getElementById("joy1Direzione");
+	var joy1X = document.getElementById("joy1X");
+	var joy1Y = document.getElementById("joy1Y");
+
+	var prevX = 0;
+	var prevY = 0;
+
+	setInterval(function(){
+		// 	//var outputEl	= document.getElementById('result');
+		joy1X.value=Joy1.GetX();
+		joy1Y.value=Joy1.GetY();
+		// 	outputEl.innerHTML	= '<b>Position:</b> '
+		// 		+ ' X:'+newX
+		// 		+ ' Y:'+newY;
+		//if ( joy1X.value != prevX || joy1Y.value != prevY ){
+			//var xhr = new XMLHttpRequest();
+			//xhr.open('PUT', "./?x="+joy1X.value+"&y="+joy1Y.value)
+			//xhr.send();
+			//console.log('x:'+joy1X.value+' y:'+joy1Y.value)
+		//}
+		
+		prevX = joy1X.value ;
+		prevY = joy1Y.value ;
+	}, 50);
+
+	// joystick.addEventListener('touchEnd', function(){
+	// 	console.log('up')
+
+	//add by Kevin
+
+
+
+	</script>
+</body>
+</html>
